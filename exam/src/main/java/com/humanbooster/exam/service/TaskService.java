@@ -26,7 +26,7 @@ public class TaskService {
     public Optional<Task> findById(Long id){return taskRepository.findById(id);}
 
     @Transactional(readOnly = true)
-    public List<Task> findByUser(User user){return taskRepository.findByUser(user);}
+    public List<Task> findByAssignee(User assignee){return taskRepository.findByAssignee(assignee);}
 
     @Transactional(readOnly = true)
     public List<Task> findByProject(Project project){return taskRepository.findByProject(project);}
@@ -59,4 +59,6 @@ public class TaskService {
         task.setAssignee(dto.getAssignee());
         return task;
     }
+
+    public boolean existsById(Long id) {return taskRepository.existsById(id);}
 }

@@ -10,6 +10,6 @@ import java.util.List;
 
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Long> {
-    List<Task> findByUser(User user);
+    List<Task> findByAssignee(User assignee);
     List<Task> findByProject(Project project);
 }

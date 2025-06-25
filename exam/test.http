@@ -1,0 +1,85 @@
+### Exam SpringBoot Java
+### Base URL: http://localhost:8080
+
+### Variables
+@baseUrl = http://localhost:8080
+@contentType = application/json
+
+# ===============================
+# Test des créations
+# ===============================
+#1 Creer un utilisateur
+POST {{baseUrl}}/exam/users
+Content-Type: {{contentType}}
+
+{
+  "username": "Zdzislaw"
+}
+
+#2 Creer un projet
+POST {{baseUrl}}/exam/projects
+Content-Type: {{contentType}}
+
+{
+  "name": "No Title",
+  "creator": {
+    "id": 1
+  }
+}
+
+#3 Creer une tache
+POST {{baseUrl}}/exam/tasks
+Content-Type: {{contentType}}
+
+{
+  "title": "paint",
+  "status": "IN_PROGRESS",
+  "project": {
+    "id": 1
+  },
+  "assignee": {
+    "id": 1
+  }
+}
+
+# ===============================
+# TASK - Test des routes
+# ===============================
+#1 Modifier une tache
+PATCH {{baseUrl}}/tasks/1
+Content-Type: {{contentType}}
+
+{
+  "title": "paint",
+  "status": "DONE",
+  "project": {
+    "id": 1
+  },
+  "assignee": {
+    "id": 1
+  }
+}
+
+
+# ===============================
+# PROJECT - Test des routes
+# ===============================
+#1 Afficher un projet
+GET {{baseUrl}}/projects/1
+
+#2 Afficher les taches du projet
+GET {{baseUrl}}/projects/1/tasks
+
+
+# ===============================
+# USER - Test des routes
+# ===============================
+#1 Afficher l'utilisateur
+GET /users/1
+
+#2 Afficher ses taches
+GET /users/1/tasks
+
+#3 Afficher ses projets
+GET /users/1/projects
+

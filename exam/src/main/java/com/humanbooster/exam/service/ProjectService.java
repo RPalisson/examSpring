@@ -25,7 +25,7 @@ public class ProjectService {
     public Optional<Project> findById(Long id){ return projectRepository.findById(id); }
 
     @Transactional(readOnly = true)
-    public List<Project> findByUser(User user){ return projectRepository.findByUser(user); }
+    public List<Project> findByCreator(User creator){ return projectRepository.findByCreator(creator); }
 
     public Project save(Project project){ return projectRepository.save(project); }
 

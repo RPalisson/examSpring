@@ -30,7 +30,7 @@ public class UserService {
 
     public void deleteById(Long id){userRepository.deleteById(id);}
 
-    public UserDTO toDto(User user){
+    public UserDTO toDTO(User user){
         if (user==null)return null;
         return new UserDTO(user.getUsername());
     }

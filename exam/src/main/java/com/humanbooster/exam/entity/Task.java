@@ -28,12 +28,12 @@ public class Task {
     private TaskStatus status;
 
     @ManyToOne
-    @JoinColumn(name = "id_project", nullable = false)
+    @JoinColumn(name = "project_id", nullable = false)
     @JsonManagedReference("project_task")
     private Project project;
 
     @ManyToOne
-    @JoinColumn(name = "id_user", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     @JsonManagedReference("task_user")
     private User assignee;
 }

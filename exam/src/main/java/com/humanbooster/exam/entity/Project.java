@@ -26,7 +26,7 @@ public class Project {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "id_user", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     @JsonManagedReference("project_user")
     private User creator;
 
